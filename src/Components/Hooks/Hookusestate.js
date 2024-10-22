@@ -1,14 +1,20 @@
+// state in Function component
+
 import React, { useState } from "react";
 
 export default function Hookusestate() {
-  const [name, setname] = useState("Yadhav");
-  //const [name, setname] = useState(0);
+  // const [name, setname] = useState("Yadhav");
+  const [name, setname] = useState(0);
 
   //Need to increment the numer just add usesate as ("0") refer line no 5 and set the data as (previous data means name + 1) refer line number 10
 
   function updateState() {
-    setname("Vishwakarma");
-    // setname(name + 1)
+    // setname("Vishwakarma");
+    setname(name + 1);
+  }
+
+  function decrementState() {
+    setname(name - 1);
   }
 
   console.warn("________________");
@@ -16,7 +22,12 @@ export default function Hookusestate() {
   return (
     <div>
       <h1>Shubham {name}</h1>
-      <button onClick={updateState}>Click me to Update</button>
+      <div>
+        <button onClick={updateState} style={{ marginRight: "10px" }}>
+          Increment
+        </button>
+        <button onClick={decrementState}>Decrement</button>
+      </div>
     </div>
   );
 }
