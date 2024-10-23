@@ -7,6 +7,10 @@ import Hookusestate from "./Components/Hooks/Hookusestate";
 import Clicksecond from "./Components/Hooks/Clicksecond";
 import Propsfun from "./Components/Propsfun&class/Propfun";
 import Propsclass from "./Components/Propsfun&class/Propsclass";
+import Inputfields from "./Components/Fields/Inputfields";
+import Checkbox from "./Components/Fields/Checkfield";
+import Hideshow from "./Components/Hideandshow/Hideshow";
+import Formhandle from "./Components/Formhandle/Formhandle";
 
 function App() {
   // function in function
@@ -30,9 +34,15 @@ function App() {
       <button onClick={()=>setName("Shivam")}>Click Me</button> */}
       {/*  */}
 
-      {/*       The following names are been changes using states using onclick event* {Class in props}*/}
-      <Propsclass name="Shubham" />
+      {/*{Class in props}*/}
+      {/* <Propsclass name="Shubham" /> */}
       {/*  */}
+
+      {/* Input fields */}
+      {/* <Inputfields /> */}
+      {/* <Checkbox /> */}
+      {/* <Hideshow/> */}
+      <Formhandle/>
     </div>
   );
 }
