@@ -11,6 +11,7 @@ import Inputfields from "./Components/Fields/Inputfields";
 import Checkbox from "./Components/Fields/Checkfield";
 import Hideshow from "./Components/Hideandshow/Hideshow";
 import Formhandle from "./Components/Formhandle/Formhandle";
+import Conditionalrenderingifelse from "./Components/Conditionalrendering/Conditionalrenderingifelse";
 
 function App() {
   // function in function
@@ -42,7 +43,8 @@ function App() {
       {/* <Inputfields /> */}
       {/* <Checkbox /> */}
       {/* <Hideshow/> */}
-      <Formhandle/>
+      {/* <Formhandle/> */}
+      <Conditionalrenderingifelse/>
     </div>
   );
 }
