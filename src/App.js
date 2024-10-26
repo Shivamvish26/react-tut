@@ -12,11 +12,20 @@ import Checkbox from "./Components/Fields/Checkfield";
 import Hideshow from "./Components/Hideandshow/Hideshow";
 import Formhandle from "./Components/Formhandle/Formhandle";
 import Conditionalrenderingifelse from "./Components/Conditionalrendering/Conditionalrenderingifelse";
+import Formvalidation from "./Components/Formvalidation/Formvalidation";
+import Propsasfunction from "./Components/Functionprops/Propsfunction";
+import Constructorclass from "./Components/Constructorclassandfunction/Constructorclass";
+import Constructorpropsupdate from "./Components/Constructorclassandfunction/COnstructorpropsupdate";
 
 function App() {
   // function in function
   function Apple() {
     return <div>Apple Component</div>;
+  }
+
+  // Called function via props
+  function getdata() {
+    alert("Data called From app");
   }
 
   const [name, setName] = useState("Shubham");
@@ -44,7 +53,14 @@ function App() {
       {/* <Checkbox /> */}
       {/* <Hideshow/> */}
       {/* <Formhandle/> */}
-      <Conditionalrenderingifelse/>
+      {/* <Conditionalrenderingifelse/> */}
+      {/* <Formvalidation/> */}
+      {/* <Propsasfunction data={getdata} /> */}
+      {/* <Constructorclass/> */}
+
+      {/* Constructor Props Update */}
+      <Constructorpropsupdate name={name}/>
+      <button onClick={()=>setName("Shivam")}>Update Props</button>
     </div>
   );
 }
