@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 import React, { useState } from "react";
 import "./App.css";
 import User from "./Components/Userfun/User";
@@ -27,7 +29,7 @@ function App() {
   function getdata() {
     alert("Data called From app");
   }
-
+  
   const [name, setName] = useState("Shubham");
 
   return (
