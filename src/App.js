@@ -18,6 +18,7 @@ import Formvalidation from "./Components/Formvalidation/Formvalidation";
 import Propsasfunction from "./Components/Functionprops/Propsfunction";
 import Constructorclass from "./Components/Constructorclassandfunction/Constructorclass";
 import Constructorpropsupdate from "./Components/Constructorclassandfunction/COnstructorpropsupdate";
+import Componentdidmount from "./Components/Lifecycle/Didmount";
 
 function App() {
   // function in function
@@ -29,7 +30,7 @@ function App() {
   function getdata() {
     alert("Data called From app");
   }
-  
+
   const [name, setName] = useState("Shubham");
 
   return (
@@ -61,8 +62,11 @@ function App() {
       {/* <Constructorclass/> */}
 
       {/* Constructor Props Update */}
-      <Constructorpropsupdate name={name}/>
-      <button onClick={()=>setName("Shivam")}>Update Props</button>
+      {/* <Constructorpropsupdate name={name}/>
+      <button onClick={()=>setName("Shivam")}>Update Props</button> */}
+
+      {/* LifeCycle */}
+      <Componentdidmount />
     </div>
   );
 }
