@@ -19,6 +19,10 @@ import Propsasfunction from "./Components/Functionprops/Propsfunction";
 import Constructorclass from "./Components/Constructorclassandfunction/Constructorclass";
 import Constructorpropsupdate from "./Components/Constructorclassandfunction/COnstructorpropsupdate";
 import Componentdidmount from "./Components/Lifecycle/Didmount";
+import Didupdate from "./Components/Lifecycle/Didupdate";
+import Shouldcomupdtae from "./Components/Lifecycle/Shouldcomupdtae";
+import Willunmount from "./Components/Lifecycle/Willunmount";
+import HookuseEffect from "./Components/Hooks/Hookeuseeffect";
 
 function App() {
   // function in function
@@ -66,7 +70,13 @@ function App() {
       <button onClick={()=>setName("Shivam")}>Update Props</button> */}
 
       {/* LifeCycle */}
-      <Componentdidmount />
+      {/* <Componentdidmount /> */}
+      {/* <Didupdate/> */}
+      {/* <Shouldcomupdtae/> */}
+      {/* <Willunmount/> */}
+
+      {/* Hooks */}
+      <HookuseEffect/>
     </div>
   );
 }
