@@ -23,6 +23,9 @@ import Didupdate from "./Components/Lifecycle/Didupdate";
 import Shouldcomupdtae from "./Components/Lifecycle/Shouldcomupdtae";
 import Willunmount from "./Components/Lifecycle/Willunmount";
 import HookuseEffect from "./Components/Hooks/Hookeuseeffect";
+import Hookuseeffectstatespecific from "./Components/Hooks/Hookuseeffectstatespecific";
+import Mapfunction from "./Components/Mapfunctionexample/Mapfunction";
+import Nestedmapandnestedarray from "./Components/Mapfunctionexample/Nestedmapandnestedarray";
 
 function App() {
   // function in function
@@ -76,7 +79,10 @@ function App() {
       {/* <Willunmount/> */}
 
       {/* Hooks */}
-      <HookuseEffect/>
+      {/* <HookuseEffect/> */}
+      {/* <Hookuseeffectstatespecific/> */}
+      {/* <Mapfunction/> */}
+      <Nestedmapandnestedarray/>
     </div>
   );
 }
