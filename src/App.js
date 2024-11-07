@@ -26,6 +26,10 @@ import HookuseEffect from "./Components/Hooks/Hookeuseeffect";
 import Hookuseeffectstatespecific from "./Components/Hooks/Hookuseeffectstatespecific";
 import Mapfunction from "./Components/Mapfunctionexample/Mapfunction";
 import Nestedmapandnestedarray from "./Components/Mapfunctionexample/Nestedmapandnestedarray";
+import Reusecomponent from "./Components/Reusecomponent/Reusecomponent";
+import Liftingstateupcode from "./Components/Liftingstateupcode/Liftingstateupcode";
+import Users from "./Components/Liftingstateupcode/User";
+import Hookusememoeffect from "./Components/Hooks/Hookusememoeffect";
 
 function App() {
   // function in function
@@ -39,6 +43,9 @@ function App() {
   }
 
   const [name, setName] = useState("Shubham");
+
+  let data = "Shubham Vishwakarma";
+
 
   return (
     <div className="App">
@@ -82,7 +89,10 @@ function App() {
       {/* <HookuseEffect/> */}
       {/* <Hookuseeffectstatespecific/> */}
       {/* <Mapfunction/> */}
-      <Nestedmapandnestedarray/>
+      {/* <Nestedmapandnestedarray/> */}
+      {/* <Reusecomponent/> */}
+      {/* <Users name={data}/> */}
+      <Hookusememoeffect/>
     </div>
   );
 }
