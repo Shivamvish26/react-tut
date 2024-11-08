@@ -32,6 +32,14 @@ import Users from "./Components/Liftingstateupcode/User";
 import Hookusememoeffect from "./Components/Hooks/Hookusememoeffect";
 import Ref from "./Components/React_Ref_component/Ref";
 import HookuseRef from "./Components/Hooks/HookuseRef";
+import Controlledcomponent from "./Components/Controlledcomponent/Controlledcomponent";
+import Higherordercomponent from "./Components/Higherordercomponent/Higherordercomponent";
+import Navbar from "./Components/Navbarroutes/Nvabar";
+import { BrowserRouter, Router, Route, Routes, Navigate } from "react-router-dom";
+import Home from "./Components/Pages/Home";
+import About from "./Components/Pages/About";
+import Contact from "./Components/Pages/Contact";
+import Page404 from "./Components/Pages/Page404";
 
 function App() {
   // function in function
@@ -47,7 +55,6 @@ function App() {
   const [name, setName] = useState("Shubham");
 
   let data = "Shubham Vishwakarma";
-
 
   return (
     <div className="App">
@@ -97,6 +104,21 @@ function App() {
       {/* <Hookusememoeffect/> */}
       {/* <Ref/> */}
       {/* <HookuseRef/> */}
+      {/* <Controlledcomponent/> */}
+      {/* <Higherordercomponent/> */}
+
+      {/* Navbar with React Router DOM */}
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          {/* <Route path="/*" element={<Page404 />} /> */}
+          <Route path="/*" element={<Navigate to="/"/>} />
+        </Routes>
+      </BrowserRouter>
+      {/*  */}
     </div>
   );
 }
