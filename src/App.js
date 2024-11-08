@@ -30,6 +30,8 @@ import Reusecomponent from "./Components/Reusecomponent/Reusecomponent";
 import Liftingstateupcode from "./Components/Liftingstateupcode/Liftingstateupcode";
 import Users from "./Components/Liftingstateupcode/User";
 import Hookusememoeffect from "./Components/Hooks/Hookusememoeffect";
+import Ref from "./Components/React_Ref_component/Ref";
+import HookuseRef from "./Components/Hooks/HookuseRef";
 
 function App() {
   // function in function
@@ -92,7 +94,9 @@ function App() {
       {/* <Nestedmapandnestedarray/> */}
       {/* <Reusecomponent/> */}
       {/* <Users name={data}/> */}
-      <Hookusememoeffect/>
+      {/* <Hookusememoeffect/> */}
+      {/* <Ref/> */}
+      {/* <HookuseRef/> */}
     </div>
   );
 }
