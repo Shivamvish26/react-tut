@@ -1,29 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
     <div>
-      <nav>
+      <nav className="head__navbar shadow-lg p-1" style={{textAlign:"right",}}>
         <ul
-          style={{
-            listStyleType: "none",
-            padding: 0,
-            display: "flex",
-            gap: "10px",
-          }}
+          className="navbar__list"
         >
           <li>
-            <Link to="/">Home</Link>
+            <NavLink className="navbar__links" to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink className="navbar__links" to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <NavLink className="navbar__links" to="/contact">Contact</NavLink>
           </li>
           <li>
-            <Link to="/service">Service</Link>
+            <NavLink className="navbar__links" to="/service">Service</NavLink>
+          </li>
+          <li>
+            <NavLink className="navbar__links" to="/hookuseparam/shubham">Shubham</NavLink>
+          </li>
+          <li>
+            <NavLink className="navbar__links" to="/hookuseparam/shivam">Shivam</NavLink>
           </li>
         </ul>
       </nav>

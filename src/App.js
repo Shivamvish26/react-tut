@@ -40,6 +40,7 @@ import Home from "./Components/Pages/Home";
 import About from "./Components/Pages/About";
 import Contact from "./Components/Pages/Contact";
 import Page404 from "./Components/Pages/Page404";
+import Hookuseparams from "./Components/Hooks/Hookuseparams";
 
 function App() {
   // function in function
@@ -114,8 +115,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          {/* <Route path="/*" element={<Page404 />} /> */}
           <Route path="/*" element={<Navigate to="/"/>} />
+          <Route path="/hookuseparam/:name" element={<Hookuseparams/>} />
         </Routes>
       </BrowserRouter>
       {/*  */}

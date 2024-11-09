@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+.navbar__list li{
+  list-style: none;
+  display: inline-block;
+  padding: 20px;
+}
+
+.navbar__links{
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.navbar__links:hover{
+  text-decoration: none;
+  color: red;
+}
+
+.head__navbar .active{
+  color: skyblue;
+}
