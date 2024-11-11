@@ -26,6 +26,12 @@ export default function Navbar() {
           <li>
             <NavLink className="navbar__links" to="/hookuseparam/shivam">Shivam</NavLink>
           </li>
+          <li>
+            <NavLink className="navbar__links" to="/searchparam">Filter Page</NavLink>
+          </li>
+          <li>
+            <NavLink className="navbar__links" to="/login">Login</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

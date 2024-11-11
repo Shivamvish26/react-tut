@@ -35,12 +35,23 @@ import HookuseRef from "./Components/Hooks/HookuseRef";
 import Controlledcomponent from "./Components/Controlledcomponent/Controlledcomponent";
 import Higherordercomponent from "./Components/Higherordercomponent/Higherordercomponent";
 import Navbar from "./Components/Navbarroutes/Nvabar";
-import { BrowserRouter, Router, Route, Routes, Navigate } from "react-router-dom";
+import {
+  BrowserRouter,
+  Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Home from "./Components/Pages/Home";
 import About from "./Components/Pages/About";
 import Contact from "./Components/Pages/Contact";
 import Page404 from "./Components/Pages/Page404";
 import Hookuseparams from "./Components/Hooks/Hookuseparams";
+import Searchparam from "./Components/Search_param_react_router_dom/Searchparam";
+import Company from "./Components/Pages/Company";
+import Channel from "./Components/Pages/Channel";
+import Login from "./Components/Pages/Login";
+import Proteced from "./Components/Protected/Protected";
 
 function App() {
   // function in function
@@ -112,11 +123,18 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Proteced Component={Home} />} />
           <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/*" element={<Navigate to="/"/>} />
-          <Route path="/hookuseparam/:name" element={<Hookuseparams/>} />
+          {/* Nested Route */}
+          <Route path="/contact" element={<Contact />}>
+            <Route path="company" element={<Company />} />
+            <Route path="channel" element={<Channel />} />
+          </Route>
+          {/* Nested Route */}
+          <Route path="/*" element={<Navigate to="/" />} />
+          <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
+          <Route path="/searchparam" element={<Searchparam />} />
+          <Route path="/login" element={<Login/>}/>
         </Routes>
       </BrowserRouter>
       {/*  */}
