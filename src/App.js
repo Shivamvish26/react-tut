@@ -52,6 +52,11 @@ import Company from "./Components/Pages/Company";
 import Channel from "./Components/Pages/Channel";
 import Login from "./Components/Pages/Login";
 import Proteced from "./Components/Protected/Protected";
+import Chatbot from "react-chatbot-kit";
+import "bootstrap/dist/css/bootstrap.min.css";
+import config from "./Components/Chatbot/Config";
+import MessageParser from "./Components/Chatbot/MessageParser";
+import ActionProvider from "./Components/Chatbot/ActionProvider";
 
 function App() {
   // function in function
@@ -67,6 +72,12 @@ function App() {
   const [name, setName] = useState("Shubham");
 
   let data = "Shubham Vishwakarma";
+
+  const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+
+  const toggleChatbot = () => {
+    setIsChatbotVisible((prev) => !prev);
+  };
 
   return (
     <div className="App">
@@ -122,6 +133,24 @@ function App() {
       {/* Navbar with React Router DOM */}
       <BrowserRouter>
         <Navbar />
+        <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
+          {isChatbotVisible ? (
+            <i className="bi bi-dash-circle text-white"></i>
+          ) : (
+            <i className="bi bi-chat text-white"></i>
+          )}
+        </button>
+
+        {isChatbotVisible && (
+          <div className="chatbot-container">
+            <Chatbot
+              config={config}
+              messageParser={MessageParser}
+              actionProvider={ActionProvider}
+            />
+          </div>
+        )}
+
         <Routes>
           <Route path="/" element={<Proteced Component={Home} />} />
           <Route path="/about" element={<About />} />
@@ -134,7 +163,7 @@ function App() {
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
           <Route path="/searchparam" element={<Searchparam />} />
-          <Route path="/login" element={<Login/>}/>
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
       {/*  */}

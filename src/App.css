@@ -59,3 +59,25 @@
   color: skyblue;
 }
 
+.chatbot-toggle-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  border-radius: 50% !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #376B7E !important;
+}
+
+.chatbot-container {
+  position: fixed;
+  bottom: 160px; 
+  right: 20px;
+  width: 300px; 
+  height: 400px;
+  z-index: 1000;
+}
+
+.react-chatbot-kit-chat-container{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
