@@ -57,6 +57,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import config from "./Components/Chatbot/Config";
 import MessageParser from "./Components/Chatbot/MessageParser";
 import ActionProvider from "./Components/Chatbot/ActionProvider";
+import Getapi from "./Components/API/Getapi";
+import Postapi from "./Components/API/Postapi";
+
 
 function App() {
   // function in function
@@ -131,7 +134,7 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Navbar />
         <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
           {isChatbotVisible ? (
@@ -154,21 +157,26 @@ function App() {
         <Routes>
           <Route path="/" element={<Proteced Component={Home} />} />
           <Route path="/about" element={<About />} />
-          {/* Nested Route */}
           <Route path="/contact" element={<Contact />}>
             <Route path="company" element={<Company />} />
             <Route path="channel" element={<Channel />} />
           </Route>
-          {/* Nested Route */}
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
           <Route path="/searchparam" element={<Searchparam />} />
           <Route path="/login" element={<Login />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
       {/*  */}
+
+        {/* API */}
+        {/* Used dynamic routing also */}
+        {/* <Getapi/> */}
+        <Postapi/>
+
     </div>
   );
 }
 
 export default App;
+  

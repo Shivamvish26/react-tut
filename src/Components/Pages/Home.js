@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+
+
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Chatbot from "react-chatbot-kit";
