@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Postapi() {
   const [email, setEmail] = useState("");
@@ -10,20 +12,30 @@ export default function Postapi() {
     e.preventDefault();
     console.log("Email:", email, "Password:", password);
 
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
-    const data = await response.json();
-    console.log("Response from API:", data);
+      if (!response.ok) throw new Error("Failed to submit form");
 
-    setResponse("Form Submitted Successfully");
-    setEmail("");
-    setPassword("");
+      const data = await response.json();
+      console.log("Response from API:", data);
+
+      toast.success("Form Submitted Successfully");
+      setEmail("");
+      setPassword("");
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Failed to submit form");
+    }
   };
 
   return (
@@ -56,9 +68,18 @@ export default function Postapi() {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-
-        {response && <p className="mt-3 text-success">{response}</p>}
       </Form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        progress={undefined}
+        theme="light"
+        transition={Bounce}
+      />
     </div>
   );
 }
