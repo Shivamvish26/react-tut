@@ -59,7 +59,7 @@ import MessageParser from "./Components/Chatbot/MessageParser";
 import ActionProvider from "./Components/Chatbot/ActionProvider";
 import Getapi from "./Components/API/Getapi";
 import Postapi from "./Components/API/Postapi";
-
+import Deleteapi from "./Components/API/Deleteapi";
 
 function App() {
   // function in function
@@ -73,6 +73,25 @@ function App() {
   }
 
   const [name, setName] = useState("Shubham");
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedMode = localStorage.getItem("darkMode");
+    return savedMode ? JSON.parse(savedMode) : false;
+  });
+
+  const toggleTheme = () => {
+    setDarkMode((prevMode) => {
+      const newMode = !prevMode;
+      localStorage.setItem("darkMode", JSON.stringify(newMode));
+      return newMode;
+    });
+  };
+
+  const appStyle = {
+    backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
+    color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+    minHeight: "100vh",
+    transition: "background-color 0.3s, color 0.3s",
+  };
 
   let data = "Shubham Vishwakarma";
 
@@ -83,6 +102,7 @@ function App() {
   };
 
   return (
+    // <div className="App" style={appStyle}>
     <div className="App">
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
@@ -135,7 +155,7 @@ function App() {
 
       {/* Navbar with React Router DOM */}
       {/* <BrowserRouter>
-        <Navbar />
+        <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
         <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
           {isChatbotVisible ? (
             <i className="bi bi-dash-circle text-white"></i>
@@ -169,14 +189,13 @@ function App() {
       </BrowserRouter> */}
       {/*  */}
 
-        {/* API */}
-        {/* Used dynamic routing also */}
-        {/* <Getapi/> */}
-        <Postapi/>
-
+      {/* API */}
+      {/* Used dynamic routing also */}
+      {/* <Getapi/> */}
+      {/* <Postapi/> */}
+      <Deleteapi/>
     </div>
   );
 }
 
 export default App;
-  
