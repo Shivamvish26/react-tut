@@ -39,16 +39,16 @@ export default function Deleteapi() {
     color: darkMode ? "#ffffff" : "#000000",
     minHeight: "100vh",
     padding: "20px",
-    transition: "background-color 0.3s, color 0.3s"
+    transition: "background-color 0.3s, color 0.3s",
   };
 
   const tableHeaderStyle = {
     backgroundColor: darkMode ? "#444444" : "#e0e0e0",
-    color: darkMode ? "#ffffff" : "#000000"
+    color: darkMode ? "#ffffff" : "#000000",
   };
 
   const tableBodyStyle = {
-    color: darkMode ? "#ffffff" : "#000000"
+    color: darkMode ? "#ffffff" : "#000000",
   };
 
   const buttonStyle = {
@@ -57,14 +57,18 @@ export default function Deleteapi() {
     color: darkMode ? "#ffffff" : "#000000",
     border: "none",
     padding: "10px 20px",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   return (
     <div style={containerStyle}>
-      <h1>Get API</h1>
+      <h1>Delete API</h1>
       <Button onClick={toggleTheme} style={buttonStyle}>
-         {darkMode ? <i class="bi bi-brightness-low-fill"></i> : <i class="bi bi-brightness-low"></i> } 
+        {darkMode ? (
+          <i class="bi bi-brightness-low-fill"></i>
+        ) : (
+          <i class="bi bi-brightness-low"></i>
+        )}
       </Button>{" "}
       <div>
         <Table striped bordered hover>
