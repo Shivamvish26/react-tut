@@ -17,6 +17,7 @@ export default function Deleteapi() {
     setDarkMode((prevMode) => !prevMode);
   };
 
+  // Fetch API
   function getlist() {
     fetch("https://jsonplaceholder.typicode.com/comments?postId=1").then(
       (result) => {
@@ -37,6 +38,7 @@ export default function Deleteapi() {
     setId(data[id - 1].id);
   }
 
+  // Delete API
   function handleuserdelete(id) {
     fetch(`https://jsonplaceholder.typicode.com/comments/${id}`, {
       method: "DELETE",
@@ -48,6 +50,7 @@ export default function Deleteapi() {
     });
   }
 
+  // Update Api
   function updateuserslist() {
     // console.warn(name, email, id);
     let item = { name, email, id };
