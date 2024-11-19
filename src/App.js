@@ -60,6 +60,8 @@ import ActionProvider from "./Components/Chatbot/ActionProvider";
 import Getapi from "./Components/API/Getapi";
 import Postapi from "./Components/API/Postapi";
 import Deleteapi from "./Components/API/Deleteapi";
+import Prviousfunction from "./Components/Prviousfunction/Prviousfunction";
+import Statewithobject from "./Components/Statewithobject/Statewithobject";
 
 function App() {
   // function in function
@@ -193,7 +195,10 @@ function App() {
       {/* Used dynamic routing also */}
       {/* <Getapi/> */}
       {/* <Postapi/> */}
-      <Deleteapi/>
+      {/* <Deleteapi/> */}
+
+      {/* <Prviousfunction/> */}
+      <Statewithobject/>
     </div>
   );
 }
