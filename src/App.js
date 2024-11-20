@@ -62,6 +62,8 @@ import Postapi from "./Components/API/Postapi";
 import Deleteapi from "./Components/API/Deleteapi";
 import Prviousfunction from "./Components/Prviousfunction/Prviousfunction";
 import Statewithobject from "./Components/Statewithobject/Statewithobject";
+import noteState from "./Context/notes/noteState";
+import NoteState from "./Context/notes/noteState";
 
 function App() {
   // function in function
@@ -105,7 +107,7 @@ function App() {
 
   return (
     // <div className="App" style={appStyle}>
-    <div className="App">
+     <div className="App"> 
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -156,39 +158,41 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      {/* <BrowserRouter>
-        <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
-        <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
-          {isChatbotVisible ? (
-            <i className="bi bi-dash-circle text-white"></i>
-          ) : (
-            <i className="bi bi-chat text-white"></i>
+      {/* <NoteState>
+        <BrowserRouter>
+          <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+          <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
+            {isChatbotVisible ? (
+              <i className="bi bi-dash-circle text-white"></i>
+            ) : (
+              <i className="bi bi-chat text-white"></i>
+            )}
+          </button>
+
+          {isChatbotVisible && (
+            <div className="chatbot-container">
+              <Chatbot
+                config={config}
+                messageParser={MessageParser}
+                actionProvider={ActionProvider}
+              />
+            </div>
           )}
-        </button>
 
-        {isChatbotVisible && (
-          <div className="chatbot-container">
-            <Chatbot
-              config={config}
-              messageParser={MessageParser}
-              actionProvider={ActionProvider}
-            />
-          </div>
-        )}
-
-        <Routes>
-          <Route path="/" element={<Proteced Component={Home} />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />}>
-            <Route path="company" element={<Company />} />
-            <Route path="channel" element={<Channel />} />
-          </Route>
-          <Route path="/*" element={<Navigate to="/" />} />
-          <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
-          <Route path="/searchparam" element={<Searchparam />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </BrowserRouter> */}
+          <Routes>
+            <Route path="/" element={<Proteced Component={Home} />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />}>
+              <Route path="company" element={<Company />} />
+              <Route path="channel" element={<Channel />} />
+            </Route>
+            <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
+            <Route path="/searchparam" element={<Searchparam />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </BrowserRouter>
+      </NoteState> */}
       {/*  */}
 
       {/* API */}
@@ -198,7 +202,7 @@ function App() {
       {/* <Deleteapi/> */}
 
       {/* <Prviousfunction/> */}
-      <Statewithobject/>
+      {/* <Statewithobject/> */}
     </div>
   );
 }
