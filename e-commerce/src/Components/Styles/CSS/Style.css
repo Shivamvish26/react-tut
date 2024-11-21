@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:wght@300;400;500;700&display=swap");
+
+:root {
+  --primary-color: #00d0ff;
+  --secondary-hover: #da0e29; /* Fixed typo from secodary-hover */
+  --primary-bg-color: #faf7f4;
+  --primary-text-color: #000;
+  --secondary-text-color: #000;
+  --heading-text-color: #98229b;
+  --line-text-color: #98a2b3;
+}
+
+/* Common button styles */
+.common__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 24px;
+  background-color: var(--primary-color);
+  font-weight: 500;
+  border-radius: 0;
+  transition: 0.6s ease-in-out;
+}
+
+.heading__text__color {
+  color: var(--heading-text-color);
+  text-transform: uppercase;
+}
+
+.subheading__text__color {
+  color: var(--secondary-text-color);
+}
+
+.common__btn_two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 24px;
+  background-color: var(--primary-bg-color);
+  border: 1px solid var(--primary-color);
+  font-weight: 500;
+  border-radius: 0;
+  transition: 0.6s ease-in-out;
+}
+
+.common__btn:hover {
+  color: var(--primary-bg-color);
+  background-color: var(--secondary-hover);
+}
+
+.text__red {
+  color: var(--primary-color);
+}
+
+.btn.focus,
+.btn:focus {
+  outline: none;
+  color: var(--primary-bg-color);
+  box-shadow: 0 0 0 0.2rem rgba(136, 14, 79, 0.45);
+}
+
+.common__btn_two:focus {
+  color: var(--primary-text-color);
+}
+
+.common__btn_two:hover {
+  border: 1px solid var(--secondary-hover);
+  outline: none;
+  box-shadow: 0 0 0 2px var(--secondary-hover) inset;
+}
+
+.snap-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+/* Global body styles */
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 1rem;
+  font-weight: 500;
+  scroll-behavior: smooth;
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--primary-bg-color);
+}
+
+/* Global heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+/* Heading sizes */
+.h1, h1 {
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.h2, h2 {
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.h3, h3 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.h4, h4 {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.h5, h5 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.h6, h6 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+
+  .h1, h1 {
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  .h2, h2 {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  .h3, h3 {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  .h4, h4 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+
+  .h5, h5 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .h6, h6 {
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+/* Navbar CSS */
+.navbar__toggleicon:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
