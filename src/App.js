@@ -92,7 +92,7 @@ function App() {
 
   const appStyle = {
     backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
-    color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+    color: darkMode ? "#ffffff" : "#000000", 
     minHeight: "100vh",
     transition: "background-color 0.3s, color 0.3s",
   };
