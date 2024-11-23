@@ -82,6 +82,14 @@ export default function Header({ darkMode, toggleTheme }) {
                 Home
               </Link>
               <Link
+                to="/product"
+                className="nav-link text-dark"
+                style={linkStyle}
+                onClick={handleClose}
+              >
+                Product
+              </Link>
+              <Link
                 to="/updateproduct"
                 className="nav-link text-dark"
                 style={linkStyle}
@@ -98,20 +106,28 @@ export default function Header({ darkMode, toggleTheme }) {
                 Add Product
               </Link>
               <Link
-                to="/register"
+                to="/logout"
                 className="nav-link text-dark"
                 style={linkStyle}
                 onClick={handleClose}
               >
-                Register
+                Logout
               </Link>
               <Link
-                to="/login"
+                to="/signup"
                 className="nav-link text-dark"
                 style={linkStyle}
                 onClick={handleClose}
               >
-                Login
+                Sign Up
+              </Link>
+              <Link
+                to="/profile"
+                className="nav-link text-dark"
+                style={linkStyle}
+                onClick={handleClose}
+              >
+                Profile
               </Link>
               <div
                 onClick={toggleTheme}

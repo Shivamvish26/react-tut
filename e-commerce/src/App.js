@@ -7,6 +7,8 @@ import AddProduct from "./Components/Pages/AddProduct/AddProduct";
 import UpdateProduct from "./Components/Pages/UpdateProduct/UpdateProduct";
 import Login from "./Components/Pages/Login/Login";
 import Register from "./Components/Pages/Register/Register";
+import Product from "./Components/Pages/Products/products";
+import Signup from "./Components/Pages/Signup/Signup";
 
 function App() {
 
@@ -39,10 +41,12 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/addproduct" element={<AddProduct/>}/>
           <Route path="/updateproduct" element={<UpdateProduct/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/register" element={<Register/>}/>
+          <Route path="/logout" element={<Login/>}/>
+          <Route path="/profile" element={<Register/>}/>
+          <Route path="/product" element={<Product/>}/>
+          <Route path="/signup" element={<Signup/>}/>
         </Routes>
-        {/* <Footer/> */}
+        <Footer/>
       </BrowserRouter>
     </div>
   );

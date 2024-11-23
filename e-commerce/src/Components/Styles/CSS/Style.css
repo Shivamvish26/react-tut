@@ -13,15 +13,21 @@
 
 /* Common button styles */
 .common__btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: 24px;
-  background-color: var(--primary-color);
-  font-weight: 500;
-  border-radius: 0;
-  transition: 0.6s ease-in-out;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  line-height: 24px !important;
+  background-color: var(--primary-color) !important;
+  font-weight: 500 !important;
+  border-radius: 0 !important;
+  transition: 0.6s ease-in-out !important;
+  border: 1px solid skyblue !important;
+}
+
+.common__btn:hover {
+  color: var(--primary-bg-color) !important;
+  background-color: var(--secondary-hover) !important;
 }
 
 .heading__text__color {
@@ -44,11 +50,6 @@
   font-weight: 500;
   border-radius: 0;
   transition: 0.6s ease-in-out;
-}
-
-.common__btn:hover {
-  color: var(--primary-bg-color);
-  background-color: var(--secondary-hover);
 }
 
 .text__red {
@@ -184,4 +185,20 @@ h6 {
 .navbar__toggleicon:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.full-height-center {
+  height: 78vh; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
 }
