@@ -36,7 +36,7 @@ export default function Header({ darkMode, toggleTheme }) {
   };
 
   return (
-    <Navbar expand={false} className="mb-3 shadow" style={navStyle}>
+    <Navbar expand={false} className="shadow" style={navStyle}>
       <Container>
         <Link
           to="/"
