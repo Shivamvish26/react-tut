@@ -64,6 +64,9 @@ import Prviousfunction from "./Components/Prviousfunction/Prviousfunction";
 import Statewithobject from "./Components/Statewithobject/Statewithobject";
 import noteState from "./Context/notes/noteState";
 import NoteState from "./Context/notes/noteState";
+import Functionalcomponentprops from "./Components/Practice Question/Functionalcomponentprops";
+import Statemanagament from "./Components/Practice Question/Statemanagement";
+import Listrendringsuingmapfunction from "./Components/Practice Question/Listrendringsuingmapfunction";
 
 function App() {
   // function in function
@@ -100,6 +103,7 @@ function App() {
   let data = "Shubham Vishwakarma";
 
   const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+  const tasks = ["Learn React", "Build Projects", "Practice Coding"];
 
   const toggleChatbot = () => {
     setIsChatbotVisible((prev) => !prev);
@@ -203,6 +207,12 @@ function App() {
 
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
+    
+        {/* Practice Questions Solving */}
+        {/* <Functionalcomponentprops name="Shubham"/> */}
+        {/* <Statemanagament/> */}
+        <Listrendringsuingmapfunction tasks={tasks}/>
+
     </div>
   );
 }
