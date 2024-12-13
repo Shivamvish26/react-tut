@@ -95,7 +95,7 @@ function App() {
 
   const appStyle = {
     backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
-    color: darkMode ? "#ffffff" : "#000000", // White text in dark mode
+    color: darkMode ? "#ffffff" : "#000000",
     minHeight: "100vh",
     transition: "background-color 0.3s, color 0.3s",
   };
@@ -111,7 +111,7 @@ function App() {
 
   return (
     // <div className="App" style={appStyle}>
-     <div className="App"> 
+    <div className="App">
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -207,12 +207,6 @@ function App() {
 
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
-    
-        {/* Practice Questions Solving */}
-        {/* <Functionalcomponentprops name="Shubham"/> */}
-        {/* <Statemanagament/> */}
-        <Listrendringsuingmapfunction tasks={tasks}/>
-
     </div>
   );
 }
