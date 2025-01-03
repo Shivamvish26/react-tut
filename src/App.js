@@ -64,6 +64,11 @@ import Prviousfunction from "./Components/Prviousfunction/Prviousfunction";
 import Statewithobject from "./Components/Statewithobject/Statewithobject";
 import noteState from "./Context/notes/noteState";
 import NoteState from "./Context/notes/noteState";
+import Apiget from "./Components/API_Revision/GET";
+import LoginPraticeApi from "./Components/API/LoginPraticeApi";
+import RegisterPraticeApi from "./Components/API/RegisterPraticeApi";
+import HookUsestate from "./Components/HooksRevisioninoneshot/HookUsestate";
+import HookUseEffect from "./Components/HooksRevisioninoneshot/HookUseEffect";
 
 function App() {
   // function in function
@@ -106,8 +111,8 @@ function App() {
   };
 
   return (
-    // <div className="App" style={appStyle}>
-    <div className="App">
+    <div className="App" style={appStyle}>
+    {/* // <div className="App"> */}
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -158,7 +163,7 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      {/* <NoteState>
+      <NoteState>
         <BrowserRouter>
           <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
           <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
@@ -190,9 +195,10 @@ function App() {
             <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
             <Route path="/searchparam" element={<Searchparam />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </NoteState> */}
+      </NoteState>
       {/*  */}
 
       {/* API */}
@@ -204,7 +210,12 @@ function App() {
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
 
-      {/* React Redux in another folder*/}
+      {/* Revisonr API*/}
+      {/* <Apiget/> */}
+
+      {/* Revision for hooks */}
+      {/* <HookUsestate/> */}
+      <HookUseEffect/>
     </div>
   );
 }
