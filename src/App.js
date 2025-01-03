@@ -64,11 +64,9 @@ import Prviousfunction from "./Components/Prviousfunction/Prviousfunction";
 import Statewithobject from "./Components/Statewithobject/Statewithobject";
 import noteState from "./Context/notes/noteState";
 import NoteState from "./Context/notes/noteState";
-import Apiget from "./Components/API_Revision/GET";
-import LoginPraticeApi from "./Components/API/LoginPraticeApi";
-import RegisterPraticeApi from "./Components/API/RegisterPraticeApi";
-import HookUsestate from "./Components/HooksRevisioninoneshot/HookUsestate";
-import HookUseEffect from "./Components/HooksRevisioninoneshot/HookUseEffect";
+import Functionalcomponentprops from "./Components/Practice Question/Functionalcomponentprops";
+import Statemanagament from "./Components/Practice Question/Statemanagement";
+import Listrendringsuingmapfunction from "./Components/Practice Question/Listrendringsuingmapfunction";
 
 function App() {
   // function in function
@@ -105,6 +103,7 @@ function App() {
   let data = "Shubham Vishwakarma";
 
   const [isChatbotVisible, setIsChatbotVisible] = useState(false);
+  const tasks = ["Learn React", "Build Projects", "Practice Coding"];
 
   const toggleChatbot = () => {
     setIsChatbotVisible((prev) => !prev);
@@ -210,12 +209,7 @@ function App() {
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
 
-      {/* Revisonr API*/}
-      {/* <Apiget/> */}
-
-      {/* Revision for hooks */}
-      {/* <HookUsestate/> */}
-      <HookUseEffect/>
+      {/* React Redux in another folder*/}
     </div>
   );
 }
