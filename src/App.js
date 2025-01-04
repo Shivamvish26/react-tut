@@ -110,8 +110,8 @@ function App() {
   };
 
   return (
-    // <div className="App" style={appStyle}>
-    <div className="App">
+    <div className="App" style={appStyle}>
+    {/* // <div className="App"> */}
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -162,7 +162,7 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      {/* <NoteState>
+      <NoteState>
         <BrowserRouter>
           <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
           <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
@@ -194,9 +194,10 @@ function App() {
             <Route path="/hookuseparam/:name" element={<Hookuseparams />} />
             <Route path="/searchparam" element={<Searchparam />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </NoteState> */}
+      </NoteState>
       {/*  */}
 
       {/* API */}
@@ -206,10 +207,7 @@ function App() {
       {/* <Deleteapi/> */}
 
       {/* <Prviousfunction/> */}
-      <Statewithobject/>
-
-      {/* Practice questions */}
-      
+      {/* <Statewithobject/> */}
     </div>
   );
 }
