@@ -206,7 +206,10 @@ function App() {
       {/* <Deleteapi/> */}
 
       {/* <Prviousfunction/> */}
-      {/* <Statewithobject/> */}
+      <Statewithobject/>
+
+      {/* Practice questions */}
+      
     </div>
   );
 }
