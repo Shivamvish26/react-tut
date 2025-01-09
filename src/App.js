@@ -67,6 +67,12 @@ import NoteState from "./Context/notes/noteState";
 import Functionalcomponentprops from "./Components/Practice Question/Functionalcomponentprops";
 import Statemanagament from "./Components/Practice Question/Statemanagement";
 import Listrendringsuingmapfunction from "./Components/Practice Question/Listrendringsuingmapfunction";
+import HookUseEffect from "./Components/HooksRevisioninoneshot/HookUseEffect";
+import HookUsestate from "./Components/HooksRevisioninoneshot/HookUsestate";
+import HookUseRef from "./Components/HooksRevisioninoneshot/HookUseRef";
+import HookUseReducer from "./Components/HooksRevisioninoneshot/HookUseReducer";
+import UseLayoutEffectExample from "./Components/HooksRevisioninoneshot/HookeUseLayoutEffect";
+import HookUseMemo from "./Components/HooksRevisioninoneshot/HookUseMemo";
 
 function App() {
   // function in function
@@ -110,8 +116,8 @@ function App() {
   };
 
   return (
-    <div className="App" style={appStyle}>
-    {/* // <div className="App"> */}
+    // <div className="App" style={appStyle}>
+    <div className="App">
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -162,7 +168,7 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      <NoteState>
+      {/* <NoteState>
         <BrowserRouter>
           <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
           <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
@@ -197,7 +203,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </NoteState>
+      </NoteState> */}
       {/*  */}
 
       {/* API */}
@@ -210,6 +216,12 @@ function App() {
       {/* <Statewithobject/> */}
 
       {/* React Redux in another folder*/}
+      {/* <HookUseEffect /> */}
+      {/* <HookUsestate /> */}
+      {/* <HookUseRef/> */}
+      {/* <HookUseReducer/> */}
+      {/* <UseLayoutEffectExample/> */}
+      <HookUseMemo/>
     </div>
   );
 }
