@@ -67,7 +67,16 @@ import NoteState from "./Context/notes/noteState";
 import Functionalcomponentprops from "./Components/Practice Question/Functionalcomponentprops";
 import Statemanagament from "./Components/Practice Question/Statemanagement";
 import Listrendringsuingmapfunction from "./Components/Practice Question/Listrendringsuingmapfunction";
+<<<<<<< HEAD
 import ConatctApi from "./Components/API_Revision/ContactApiPost";
+=======
+import HookUseEffect from "./Components/HooksRevisioninoneshot/HookUseEffect";
+import HookUsestate from "./Components/HooksRevisioninoneshot/HookUsestate";
+import HookUseRef from "./Components/HooksRevisioninoneshot/HookUseRef";
+import HookUseReducer from "./Components/HooksRevisioninoneshot/HookUseReducer";
+import UseLayoutEffectExample from "./Components/HooksRevisioninoneshot/HookeUseLayoutEffect";
+import HookUseMemo from "./Components/HooksRevisioninoneshot/HookUseMemo";
+>>>>>>> 5ec40e85406516d385190530318210c47ac1ae56
 
 function App() {
   // function in function
@@ -111,8 +120,8 @@ function App() {
   };
 
   return (
-    <div className="App" style={appStyle}>
-    {/* // <div className="App"> */}
+    // <div className="App" style={appStyle}>
+    <div className="App">
       {/* <User/> Function Components */}
       {/* <Userclas/> Function Component */}
       {/* <Apple/> we can call the function in {jsx} also */}
@@ -209,7 +218,18 @@ function App() {
 
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
+<<<<<<< HEAD
     <ConatctApi/>
+=======
+
+      {/* React Redux in another folder*/}
+      {/* <HookUseEffect /> */}
+      {/* <HookUsestate /> */}
+      {/* <HookUseRef/> */}
+      {/* <HookUseReducer/> */}
+      {/* <UseLayoutEffectExample/> */}
+      <HookUseMemo/>
+>>>>>>> 5ec40e85406516d385190530318210c47ac1ae56
     </div>
   );
 }
