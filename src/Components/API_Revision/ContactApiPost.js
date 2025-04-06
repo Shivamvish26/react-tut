@@ -49,6 +49,7 @@ export default function ContactApi() {
                     placeholder="Enter Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    required
                   />
                 </div>
                 <div className="col-md-6">
@@ -58,6 +59,7 @@ export default function ContactApi() {
                     placeholder="Enter Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                   />
                 </div>
               </div>
@@ -69,12 +71,13 @@ export default function ContactApi() {
                   placeholder="Enter Phone"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  required
                 />
               </div>
               <div className="mb-3">
                 <textarea
                   className="w-100 p-2 rounded border"
-                  placeholder="Enter Message"
+                  placeholder="Enter Message (Optional)"
                   rows="4"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
