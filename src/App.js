@@ -67,6 +67,7 @@ import NoteState from "./Context/notes/noteState";
 import Functionalcomponentprops from "./Components/Practice Question/Functionalcomponentprops";
 import Statemanagament from "./Components/Practice Question/Statemanagement";
 import Listrendringsuingmapfunction from "./Components/Practice Question/Listrendringsuingmapfunction";
+import ConatctApi from "./Components/API_Revision/ContactApiPost";
 
 function App() {
   // function in function
@@ -162,7 +163,7 @@ function App() {
       {/* <Higherordercomponent/> */}
 
       {/* Navbar with React Router DOM */}
-      <NoteState>
+      {/* <NoteState>
         <BrowserRouter>
           <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
           <button className="btn chatbot-toggle-button" onClick={toggleChatbot}>
@@ -197,7 +198,7 @@ function App() {
             <Route path="/" element={<Home />} />
           </Routes>
         </BrowserRouter>
-      </NoteState>
+      </NoteState> */}
       {/*  */}
 
       {/* API */}
@@ -208,6 +209,7 @@ function App() {
 
       {/* <Prviousfunction/> */}
       {/* <Statewithobject/> */}
+    <ConatctApi/>
     </div>
   );
 }
