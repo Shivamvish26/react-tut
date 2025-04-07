@@ -73,6 +73,8 @@ import HookUseRef from "./Components/HooksRevisioninoneshot/HookUseRef";
 import HookUseReducer from "./Components/HooksRevisioninoneshot/HookUseReducer";
 import UseLayoutEffectExample from "./Components/HooksRevisioninoneshot/HookeUseLayoutEffect";
 import HookUseMemo from "./Components/HooksRevisioninoneshot/HookUseMemo";
+import Getapioneshot from "./Components/API_Revision/GET";
+import Postapioneshot from "./Components/API_Revision/Post";
 
 function App() {
   // function in function
@@ -208,7 +210,7 @@ function App() {
 
       {/* API */}
       {/* Used dynamic routing also */}
-      {/* <Getapi/> */}
+      <Getapi />
       {/* <Postapi/> */}
       {/* <Deleteapi/> */}
 
@@ -221,7 +223,11 @@ function App() {
       {/* <HookUseRef/> */}
       {/* <HookUseReducer/> */}
       {/* <UseLayoutEffectExample/> */}
-      <HookUseMemo/>
+      {/* <HookUseMemo/> */}
+
+      {/* API Reevision One Shot */}
+      {/* <Getapioneshot/> */}
+      {/* <Postapioneshot/> */}
     </div>
   );
 }

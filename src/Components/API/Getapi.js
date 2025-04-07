@@ -7,7 +7,6 @@ export default function Getapi() {
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/todos").then((result) => {
       result.json().then((resp) => {
-        // console.log("result", resp);
         setData(resp);
       });
     });
@@ -21,8 +20,8 @@ export default function Getapi() {
           <thead>
             <tr>
               <td>User ID</td>
-              <td>Title</td>
-            </tr>   
+              <td>Title</td>``
+            </tr>
           </thead>
           <tbody>
             {data.map((item, i) => (
