@@ -1,52 +1,46 @@
-import React, { useState } from "react";
-import { Button, Container, Form, FormControl } from "react-bootstrap";
+import React from "react";
+import { Form, Input, Button, Checkbox } from "antd";
 
 export default function Signup() {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const onFinish = (values) => {
+    console.log("Success:", values);
+  };
 
-  const handlesubmitform = (e) => {
-    e.preventDefault();
-    console.log("Name....", name);
-    console.log("Email....", email);
-    console.log("Password....", password);
-    setName("");
-    setEmail("");
-    setPassword("");
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
-    <div>
-      <Container className="full-height-center">
-        <h2 className="text-center mb-4">Sign Up Page</h2>
-        <Form className="w-50" onSubmit={handlesubmitform}>
-          <FormControl
-            type="text"
-            placeholder="Enter Your Name"
-            className="mb-3 w-100 shadow-none"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <FormControl
-            type="email"
-            placeholder="Enter Your Email"
-            className="mb-3 w-100 shadow-none"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <FormControl
-            type="password"
-            placeholder="Enter Your Password"
-            className="mb-3 w-100 shadow-none"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button type="submit" className="w-100 common__btn rounded-pill">
-            Signup
-          </Button>
-        </Form>
-      </Container>
-    </div>
+    <Form>
+      <Form.Item
+        label="Username"
+        name="username"
+        rules={[{ required: true, message: "Please input your username!" }]}
+      >
+        <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Password"
+        name="password"
+        rules={[{ required: true, message: "Please input your password!" }]}
+      >
+        <Input.Password />
+      </Form.Item>
+
+      <Form.Item
+        name="remember"
+        valuePropName="checked"
+        wrapperCol={{ offset: 8, span: 16 }}
+      >
+        <Checkbox>Remember me</Checkbox>
+      </Form.Item>
+
+      <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+        <Button type="primary" htmlType="submit">
+          Submit
+        </Button>
+      </Form.Item>
+    </Form>
   );
 }
