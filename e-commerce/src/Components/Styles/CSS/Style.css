@@ -87,7 +87,6 @@ body {
   font-weight: 500;
   scroll-behavior: smooth;
   font-family: 'Ubuntu', sans-serif;
-  background-color: var(--primary-bg-color);
 }
 
 /* Global heading styles */
@@ -185,20 +184,4 @@ h6 {
 .navbar__toggleicon:focus {
   outline: none !important;
   box-shadow: none !important;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  text-align: center;
-  width: 100%;
-  background-color: transparent;
-}
-
-.full-height-center {
-  height: 78vh; 
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
-  justify-content: center; 
 }
