@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:wght@300;400;500;700&display=swap");
 
 :root {
-  --primary-color: #00d0ff;
+  --primary-color: #900;
   --secondary-hover: #da0e29;
   /* Fixed typo from secodary-hover */
   --primary-bg-color: #faf7f4;
@@ -9,25 +9,15 @@
   --secondary-text-color: #000;
   --heading-text-color: #98229b;
   --line-text-color: #98a2b3;
+  --fontColor:#48475c;
+  --hrline:#48475c2b;
 }
 
 /* Common button styles */
 .common__btn {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-  line-height: 24px !important;
   background-color: var(--primary-color) !important;
   font-weight: 500 !important;
-  border-radius: 0 !important;
-  transition: 0.6s ease-in-out !important;
-  border: 1px solid skyblue !important;
-}
-
-.common__btn:hover {
-  color: var(--primary-bg-color) !important;
-  background-color: var(--secondary-hover) !important;
+  border: 1px solid var(--primary-color) !important;
 }
 
 .heading__text__color {
@@ -184,4 +174,25 @@ h6 {
 .navbar__toggleicon:focus {
   outline: none !important;
   box-shadow: none !important;
+}
+
+.login__title{ 
+  color: var(--fontColor);
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  margin: 0px 0px 32px;
+}
+
+.no__focus{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.horizontal__line{
+  background-color: var(--hrline);
+  height: 1px;
+  margin-top: 1rem;
 }

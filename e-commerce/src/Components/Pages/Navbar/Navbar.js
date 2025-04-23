@@ -129,7 +129,7 @@ export default function Header({ darkMode, toggleTheme }) {
               >
                 Profile
               </Link>
-              <div
+              {/* <div
                 onClick={toggleTheme}
                 className="nav-link text-dark"
                 style={linkStyle}
@@ -149,7 +149,7 @@ export default function Header({ darkMode, toggleTheme }) {
                     onClick={handleClose}
                   />
                 )}
-              </div>
+              </div> */}
             </Nav>
           </Offcanvas.Body>
         </Navbar.Offcanvas>

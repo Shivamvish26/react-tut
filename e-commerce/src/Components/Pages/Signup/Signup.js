@@ -1,120 +1,130 @@
 import React, { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import { Form, Input, Button, Checkbox } from "antd";
-import signup from "../Assests/Images/signup.webp";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import google from "../Assests/Images/google.svg";
+import microsoft from "../Assests/Images/microsoft.svg";
+import { toast } from "react-toastify";
 
-export default function LoginForm() {
-  const [username, setUsername] = useState("");
+export default function Signup() {
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [remember, setRemember] = useState(false);
+  const [showpassword, setShowpassword] = useState(false);
+  const [acceptterms, setAccepttrems] = useState(false);
 
-  const formRef = React.createRef();
-
-  const onFinish = (values) => {
-    console.log("Success:", values);
-
-    formRef.current.resetFields();
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
+  const handleformsubmit = (e) => {
+    e.preventDefault();
+    console.log("Email: ", email);
+    console.log("Password: ", password);
+    if (!acceptterms) {
+      toast.error("Please accept the terms and conditions");
+      return;
+    }
+    toast.success("Login successful!");
+    setEmail("");
+    setPassword("");
+    setAccepttrems("");
   };
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        backgroundColor: "#f8f9fa",
-      }}
-      className="d-flex align-items-center"
-    >
-      <Container>
-        <Row
-          className="align-items-stretch shadow overflow-hidden rounded"
-          style={{ minHeight: "80vh" }}
-        >
-          {/* Left Column: Image */}
-          <Col md={6} className="d-none d-md-block p-0">
-            <img 
-              src={signup}
-              alt="Login Visual"
-              className="img-fluid w-100 h-100"
-              style={{ objectFit: "cover" }}
+    <Container>
+      <div className="py-4">
+        <Row className="d-flex justify-content-center align-items-center vh-80 bg-white shadow-sm rounded-3">
+          {/* <Col md={8}>
+            <img
+              src={login}
+              alt="signup"
+              style={{ width: "100%", height: "auto" }}
             />
-          </Col>
+          </Col> */}
+          <Col md={12} className="p-5">
+            <div>
+              <h3 className="text-center login__title">Login</h3>
+            </div>
+            <Form onSubmit={handleformsubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Email"
+                  className="no__focus"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </Form.Group>
 
-          {/* Right Column: Form */}
-          <Col
-            md={6}
-            className="d-flex align-items-center justify-content-center bg-white"
-          >
-            <div className="p-4 w-100" style={{ maxWidth: "400px" }}>
-              <h3 className="mb-4 text-center">Login</h3>
-
-              <Form
-                ref={formRef}
-                name="loginForm"
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-                autoComplete="on"
-                layout="vertical"
-                initialValues={{ remember: false }}
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type={showpassword ? "text" : "password"}
+                  placeholder="Password"
+                  className="no__focus"
+                  required
+                  maxLength={10}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </Form.Group>
+              <div className="d-flex justify-content-between align-items-center mb-3">
+                <Form.Group className="" controlId="formBasicCheckbox">
+                  <Form.Check
+                    type="checkbox"
+                    className=""
+                    label="Show Password"
+                    checked={showpassword}
+                    onChange={(e) => setShowpassword(e.target.checked)}
+                  />
+                </Form.Group>
+                <Link to="/login" className="text-decoration-none text-dark">
+                  Forget Password
+                </Link>
+              </div>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check
+                  type="checkbox"
+                  className=""
+                  label="I have read and accepted the privacy policies and terms of services."
+                  checked={acceptterms}
+                  onChange={(e) => setAccepttrems(e.target.checked)}
+                />
+              </Form.Group>
+              <Button type="submit" className="w-100 rounded-1 common__btn">
+                Login
+              </Button>
+            </Form>
+            <div className="horizontal__line"></div>
+            <div className="mt-3 d-flex gap-2">
+              <div
+                className="flex-fill d-flex align-items-center border rounded px-3 py-2 shadow-sm bg-white"
+                style={{ cursor: "pointer" }}
               >
-                <Form.Item
-                  label="Username"
-                  name="username"
-                  rules={[
-                    { required: true, message: "Please input your username!" },
-                  ]}
-                >
-                  <Input
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                  />
-                </Form.Item>
+                <img
+                  src={google}
+                  alt="Login with Google"
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
+                />
+                <span className="text-muted m-0" style={{ fontSize: "12px" }}>
+                  Login with Google
+                </span>
+              </div>
 
-                <Form.Item
-                  label="Password"
-                  name="password"
-                  rules={[
-                    { required: true, message: "Please input your password!" },
-                  ]}
-                >
-                  <Input.Password 
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} 
-                  />
-                </Form.Item>
-
-                {/* Checkbox for terms and conditions */}
-                <Form.Item
-                  name="remember"
-                  valuePropName="checked"
-                  rules={[
-                    {
-                      validator: (_, value) =>
-                        value ? Promise.resolve() : Promise.reject("Please accept the terms and conditions!"),
-                    },
-                  ]}
-                >
-                  <Checkbox 
-                    checked={remember}
-                    onChange={(e) => setRemember(e.target.checked)}
-                  >
-                    Accept Terms & Conditions
-                  </Checkbox> 
-                </Form.Item>
-
-                <Form.Item>
-                  <Button type="primary" htmlType="submit" block>
-                    Submit
-                  </Button>
-                </Form.Item>
-              </Form>
+              <div
+                className="flex-fill d-flex align-items-center border rounded px-3 py-2 shadow-sm bg-white"
+                style={{ cursor: "pointer" }}
+              >
+                <img
+                  src={microsoft}
+                  alt="Login with Microsoft"
+                  style={{ width: "20px", height: "20px", marginRight: "10px" }}
+                />
+                <span className="text-muted m-0" style={{ fontSize: "12px" }}>
+                  Login with Microsoft
+                </span>
+              </div>
             </div>
           </Col>
         </Row>
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }

@@ -9,6 +9,8 @@ import Login from "./Components/Pages/Login/Login";
 import Register from "./Components/Pages/Register/Register";
 import Product from "./Components/Pages/Products/products";
 import Signup from "./Components/Pages/Signup/Signup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 
@@ -26,8 +28,8 @@ function App() {
   };
 
   const appStyle = {
-    backgroundColor: darkMode ? "#2c2c2c" : "#ffffff",
-    color: darkMode ? "#ffffff" : "#000000",
+    backgroundColor: darkMode ? "#2c2c2c" : "#f5f5f5",
+    color: darkMode ? "#f5f5f5" : "#000000",
     minHeight: "100vh",
     transition: "background-color 0.3s, color 0.3s",
   };
@@ -46,6 +48,7 @@ function App() {
           <Route path="/product" element={<Product/>}/>
           <Route path="/signup" element={<Signup/>}/>
         </Routes>
+          <ToastContainer />
         {/* <Footer/> */}
       </BrowserRouter>
     </div>
