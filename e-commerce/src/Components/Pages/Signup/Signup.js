@@ -4,26 +4,46 @@ import { Link } from "react-router-dom";
 import google from "../Assests/Images/google.svg";
 import microsoft from "../Assests/Images/microsoft.svg";
 import { toast } from "react-toastify";
+import login from "../Assests/Images/login.webp";
+import {useNavigate} from 'react-router-dom'
 
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showpassword, setShowpassword] = useState(false);
   const [acceptterms, setAccepttrems] = useState(false);
+  const navigate = useNavigate();
 
-  const handleformsubmit = (e) => {
+  const handleformsubmit = async (e) => {
     e.preventDefault();
-    console.log("Email: ", email);
-    console.log("Password: ", password);
     if (!acceptterms) {
       toast.error("Please accept the terms and conditions");
       return;
     }
-    toast.success("Login successful!");
-    setEmail("");
-    setPassword("");
-    setAccepttrems("");
+    try {
+      let result = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      result = await result.json();
+      console.log(result);
+      toast.success("Registration successful!");
+      setEmail("");
+      setPassword("");
+      setAccepttrems(false);
+      navigate('/addproduct')
+    } catch (error) {
+      console.error(error);
+      toast.error("Something went wrong. Please try again.");
+      setEmail("");
+      setPassword("");
+      setAccepttrems(false);
+    }
   };
+  
 
   return (
     <Container>
