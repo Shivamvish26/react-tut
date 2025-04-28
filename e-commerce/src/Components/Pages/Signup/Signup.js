@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import google from "../Assests/Images/google.svg";
 import microsoft from "../Assests/Images/microsoft.svg";
 import { toast } from "react-toastify";
 import login from "../Assests/Images/login.webp";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showpassword, setShowpassword] = useState(false);
@@ -16,14 +17,14 @@ export default function Signup() {
 
   const handleformsubmit = async (e) => {
     e.preventDefault();
-    if (!acceptterms) {
-      toast.error("Please accept the terms and conditions");
-      return;
-    }
+    // if (!acceptterms) {
+    //   toast.error("Please accept the terms and conditions");
+    //   return;
+    // }
     try {
       let result = await fetch("http://localhost:5000/register", {
         method: "POST",
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password }),
         headers: {
           "Content-Type": "application/json",
         },
@@ -34,7 +35,8 @@ export default function Signup() {
       setEmail("");
       setPassword("");
       setAccepttrems(false);
-      navigate('/addproduct')
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/login");
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong. Please try again.");
@@ -43,7 +45,13 @@ export default function Signup() {
       setAccepttrems(false);
     }
   };
-  
+
+  useEffect(() => {
+    const auth = localStorage.getItem("user");
+    if (auth) {
+      navigate("/login");
+    }
+  }, []);
 
   return (
     <Container>
@@ -58,9 +66,21 @@ export default function Signup() {
           </Col> */}
           <Col md={12} className="p-5">
             <div>
-              <h3 className="text-center login__title">Login</h3>
+              <h3 className="text-center login__title">Sign Up</h3>
             </div>
             <Form onSubmit={handleformsubmit}>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Name"
+                  className="no__focus"
+                  required
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+              </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -96,10 +116,10 @@ export default function Signup() {
                   />
                 </Form.Group>
                 <Link to="/login" className="text-decoration-none text-dark">
-                  Forget Password
+                  Already have an account? Login
                 </Link>
               </div>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+              {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check
                   type="checkbox"
                   className=""
@@ -107,12 +127,12 @@ export default function Signup() {
                   checked={acceptterms}
                   onChange={(e) => setAccepttrems(e.target.checked)}
                 />
-              </Form.Group>
+              </Form.Group> */}
               <Button type="submit" className="w-100 rounded-1 common__btn">
-                Login
+                Register
               </Button>
             </Form>
-            <div className="horizontal__line"></div>
+            {/* <div className="horizontal__line"></div>
             <div className="mt-3 d-flex gap-2">
               <div
                 className="flex-fill d-flex align-items-center border rounded px-3 py-2 shadow-sm bg-white"
@@ -141,7 +161,7 @@ export default function Signup() {
                   Login with Microsoft
                 </span>
               </div>
-            </div>
+            </div> */}
           </Col>
         </Row>
       </div>

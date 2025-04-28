@@ -11,9 +11,9 @@ import Product from "./Components/Pages/Products/products";
 import Signup from "./Components/Pages/Signup/Signup";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Privatecomp from "./Components/Pages/private/privatecomp";
 
 function App() {
-
   const [darkMode, setDarkMode] = useState(() => {
     const savedMode = localStorage.getItem("darkMode");
     return savedMode ? JSON.parse(savedMode) : false;
@@ -38,17 +38,21 @@ function App() {
     <div style={appStyle}>
       {/* <h1 className="text-center">Ecommerce Website</h1> */}
       <BrowserRouter>
-      <Header darkMode={darkMode} toggleTheme={toggleTheme}/>
+        <Header darkMode={darkMode} toggleTheme={toggleTheme} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/addproduct" element={<AddProduct/>}/>
-          <Route path="/updateproduct" element={<UpdateProduct/>}/>
-          <Route path="/logout" element={<Login/>}/>
-          <Route path="/profile" element={<Register/>}/>
-          <Route path="/product" element={<Product/>}/>
-          <Route path="/signup" element={<Signup/>}/>
+          {/* protected routes */}
+          <Route element={<Privatecomp />}>
+            <Route path="/addproduct" element={<AddProduct />} />
+            <Route path="/updateproduct" element={<UpdateProduct />} />
+            <Route path="/profile" element={<Register />} />
+            <Route path="/product" element={<Product />} />
+          </Route>
+
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
-          <ToastContainer />
+        <ToastContainer />
         {/* <Footer/> */}
       </BrowserRouter>
     </div>

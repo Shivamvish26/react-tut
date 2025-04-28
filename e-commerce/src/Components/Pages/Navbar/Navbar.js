@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Navbar, Nav, Container, Offcanvas } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { FaMoon, FaSun } from "react-icons/fa"; // FontAwesome Icons
+import { Link, useNavigate } from "react-router-dom";
+import { FaMoon, FaSun } from "react-icons/fa";
 import logo from "../Assests/Images/logo.png";
 
 export default function Header({ darkMode, toggleTheme }) {
@@ -9,6 +9,16 @@ export default function Header({ darkMode, toggleTheme }) {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const navigate = useNavigate();
+
+  const auth = localStorage.getItem("user");
+
+  const handlelogout = () => {
+    handleClose();
+    localStorage.clear("user");
+    navigate("/login");
+    window.location.reload();
+  };
 
   const navStyle = {
     backgroundColor: darkMode ? "#333333" : "#f8f9fa",
@@ -106,22 +116,6 @@ export default function Header({ darkMode, toggleTheme }) {
                 Add Product
               </Link>
               <Link
-                to="/logout"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Logout
-              </Link>
-              <Link
-                to="/signup"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Sign Up
-              </Link>
-              <Link
                 to="/profile"
                 className="nav-link text-dark"
                 style={linkStyle}
@@ -129,6 +123,37 @@ export default function Header({ darkMode, toggleTheme }) {
               >
                 Profile
               </Link>
+              {auth ? (
+                <>
+                  <Link
+                    to="/logout"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handlelogout}
+                  >
+                    Logout
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <Link
+                    to="/signup"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Sign Up
+                  </Link>
+                  <Link
+                    to="/login"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Login
+                  </Link>
+                </>
+              )}
               {/* <div
                 onClick={toggleTheme}
                 className="nav-link text-dark"
