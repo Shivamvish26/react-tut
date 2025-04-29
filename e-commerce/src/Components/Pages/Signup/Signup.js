@@ -35,7 +35,7 @@ export default function Signup() {
       setEmail("");
       setPassword("");
       setAccepttrems(false);
-      localStorage.setItem("user", JSON.stringify(result));
+      // localStorage.setItem("user", JSON.stringify(result));
       navigate("/login");
     } catch (error) {
       console.error(error);
@@ -51,7 +51,7 @@ export default function Signup() {
     if (auth) {
       navigate("/login");
     }
-  }, []);
+  });
 
   return (
     <Container>

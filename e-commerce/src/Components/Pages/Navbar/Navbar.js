@@ -61,7 +61,7 @@ export default function Header({ darkMode, toggleTheme }) {
             className="img-fluid d-inline-block align-top me-2"
             style={logoStyle}
           />
-          <span>E-Commerce</span>
+          <span>E-Commerce Dashboard</span>
         </Link>
 
         <Navbar.Toggle
@@ -78,7 +78,7 @@ export default function Header({ darkMode, toggleTheme }) {
         >
           <Offcanvas.Header closeButton>
             <Offcanvas.Title id="offcanvasNavbarLabel">
-              E-Commerce
+              E-Commerce Dashboard
             </Offcanvas.Title>
           </Offcanvas.Header>
           <Offcanvas.Body>
@@ -91,47 +91,47 @@ export default function Header({ darkMode, toggleTheme }) {
               >
                 Home
               </Link>
-              <Link
-                to="/product"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Product
-              </Link>
-              <Link
-                to="/updateproduct"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Update Product
-              </Link>
-              <Link
-                to="/addproduct"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Add Product
-              </Link>
-              <Link
-                to="/profile"
-                className="nav-link text-dark"
-                style={linkStyle}
-                onClick={handleClose}
-              >
-                Profile
-              </Link>
               {auth ? (
                 <>
+                  <Link
+                    to="/product"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Product
+                  </Link>
+                  <Link
+                    to="/updateproduct"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Update Product
+                  </Link>
+                  <Link
+                    to="/addproduct"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Add Product
+                  </Link>
+                  <Link
+                    to="/profile"
+                    className="nav-link text-dark"
+                    style={linkStyle}
+                    onClick={handleClose}
+                  >
+                    Profile
+                  </Link>
                   <Link
                     to="/logout"
                     className="nav-link text-dark"
                     style={linkStyle}
                     onClick={handlelogout}
                   >
-                    Logout
+                    Logout ({JSON.parse(auth).name})
                   </Link>
                 </>
               ) : (
@@ -154,6 +154,7 @@ export default function Header({ darkMode, toggleTheme }) {
                   </Link>
                 </>
               )}
+
               {/* <div
                 onClick={toggleTheme}
                 className="nav-link text-dark"
