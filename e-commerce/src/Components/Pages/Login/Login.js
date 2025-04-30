@@ -39,6 +39,9 @@ export default function Login() {
 
       if (result.status === "ok") {
         toast.success("Login successful");
+        setEmail("");
+        setPassword("");
+        setAccepttrems(false);
         localStorage.setItem("user", JSON.stringify(result.data));
         navigate("/addproduct");
       } else if (result.status === "error") {
@@ -47,6 +50,9 @@ export default function Login() {
     } catch (error) {
       console.error("Error during login:", error);
       toast.error("Something went wrong. Please try again.");
+      setEmail("");
+      setPassword("");
+      setAccepttrems(false);
     }
   };
 

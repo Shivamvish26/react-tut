@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row, Form } from "react-bootstrap";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 export default function AddProduct() {
   const [name, setName] = useState("");
@@ -8,24 +9,65 @@ export default function AddProduct() {
   const [category, setCategory] = useState("");
   const [company, setCompany] = useState("");
   const [description, setDescription] = useState("");
+  const [error, setError] = useState(false);
+  const navigate = useNavigate();
 
-  const auth = localStorage.getItem("user");
-
-  const handleaddproduct = (e) => {
+  const handleaddproduct = async (e) => {
     e.preventDefault();
-    Swal.fire({
-      icon: "success",
-      title: "Product Added!",
-      text: "Product has been added successfully.",
-      showConfirmButton: false,
-      timer: 2000,
-      timerProgressBar: true,
-    });
-    setName("");
-    setPrice("");
-    setCategory("");
-    setCompany("");
-    setDescription("");
+
+    if (!name) {
+      setError(true);
+      return;
+    }
+
+    const userId = JSON.parse(localStorage.getItem("user"))._id;
+    try {
+      let result = await fetch("http://localhost:5000/add-product", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          price,
+          category,
+          company,
+          description,
+          userId,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      result = await result.json();
+      console.log(result);
+      Swal.fire({
+        icon: "success",
+        title: "Product Added!",
+        text: "Product has been added successfully.",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      });
+      setName("");
+      setPrice("");
+      setCategory("");
+      setCompany("");
+      setDescription("");
+      navigate("/product");
+    } catch (error) {
+      console.error(error);
+      Swal.fire({
+        icon: "error",
+        title: "Try Again",
+        text: "Something went Wrong, Please try again",
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+      });
+      setName("");
+      setPrice("");
+      setCategory("");
+      setCompany("");
+      setDescription("");
+    }
   };
 
   return (
@@ -34,18 +76,18 @@ export default function AddProduct() {
         <Row className="d-flex justify-content-center align-items-center vh-80 py-4">
           <Col md={12}>
             <div className="bg-white shadow-sm rounded-3 p-4">
-              <h1 className="text-center">Add Product</h1>
+              <h1>Add Product</h1>
               <Form onSubmit={handleaddproduct}>
-                <Form.Group className="mb-3">
+                {/* <Form.Group className="mb-3">
                   <Form.Control
                     type="text"
                     placeholder={auth?.userId ?? "User ID"}
                     className="no__focus"
                     disabled
                   />
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group className="mb-3">
-                  <Form.Label>Name</Form.Label>
+                  <Form.Label>Product Name</Form.Label>
                   <Form.Control
                     type="text"
                     placeholder="Product Name"
@@ -54,6 +96,11 @@ export default function AddProduct() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
+                  {/* {error && !name && (
+                    <span className="text-danger">
+                      Enter valid Product Name
+                    </span>
+                  )} */}
                 </Form.Group>
 
                 <Form.Group className="mb-3">

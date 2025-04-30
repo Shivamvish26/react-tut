@@ -126,7 +126,6 @@ export default function Header({ darkMode, toggleTheme }) {
                     Profile
                   </Link>
                   <Link
-                    to="/logout"
                     className="nav-link text-dark"
                     style={linkStyle}
                     onClick={handlelogout}
