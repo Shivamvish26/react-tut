@@ -17,10 +17,7 @@ export default function Signup() {
 
   const handleformsubmit = async (e) => {
     e.preventDefault();
-    // if (!acceptterms) {
-    //   toast.error("Please accept the terms and conditions");
-    //   return;
-    // }
+
     try {
       let result = await fetch("http://localhost:5000/register", {
         method: "POST",
@@ -29,14 +26,23 @@ export default function Signup() {
           "Content-Type": "application/json",
         },
       });
+
       result = await result.json();
       console.log(result);
-      toast.success("Registration successful!");
-      setEmail("");
-      setPassword("");
-      setAccepttrems(false);
-      // localStorage.setItem("user", JSON.stringify(result));
-      navigate("/login");
+
+      if (result.auth) {
+        // Save JWT token and user data
+        // localStorage.setItem("user", JSON.stringify(result.result));
+        localStorage.setItem("token", result.auth);
+
+        toast.success("Registration successful!");
+        setEmail("");
+        setPassword("");
+        setAccepttrems(false);
+        navigate("/login");
+      } else {
+        toast.error("Registration failed!");
+      }
     } catch (error) {
       console.error(error);
       toast.error("Something went wrong. Please try again.");

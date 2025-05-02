@@ -16,12 +16,14 @@ export default function Login() {
 
   const handleformlogin = async (e) => {
     e.preventDefault();
+
     if (!acceptterms) {
       toast.error("Please accept the terms and conditions");
       return;
     }
+
     try {
-      let response = await fetch("http://localhost:5000/login", {
+      const response = await fetch("http://localhost:5000/login", {
         method: "POST",
         body: JSON.stringify({ email, password }),
         headers: {
@@ -29,23 +31,21 @@ export default function Login() {
         },
       });
 
-      if (!response.ok) {
-        toast.error("Server Error. Please try again later.");
-        return;
-      }
-
       const result = await response.json();
       console.log(result);
 
-      if (result.status === "ok") {
+      if (response.ok && result.auth) {
+        // Save JWT token and user
+        localStorage.setItem("user", JSON.stringify(result.user));
+        localStorage.setItem("token", result.auth);
+
         toast.success("Login successful");
         setEmail("");
         setPassword("");
         setAccepttrems(false);
-        localStorage.setItem("user", JSON.stringify(result.data));
         navigate("/addproduct");
-      } else if (result.status === "error") {
-        toast.error(result.message);
+      } else {
+        toast.error(result.message || "Login failed");
       }
     } catch (error) {
       console.error("Error during login:", error);

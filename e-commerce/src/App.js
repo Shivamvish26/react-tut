@@ -44,7 +44,7 @@ function App() {
           {/* protected routes */}
           <Route element={<Privatecomp />}>
             <Route path="/addproduct" element={<AddProduct />} />
-            <Route path="/updateproduct" element={<UpdateProduct />} />
+            <Route path="/updateproduct/:id" element={<UpdateProduct />} />
             <Route path="/profile" element={<Register />} />
             <Route path="/product" element={<Product />} />
           </Route>

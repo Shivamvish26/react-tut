@@ -21,6 +21,7 @@ export default function AddProduct() {
     }
 
     const userId = JSON.parse(localStorage.getItem("user"))._id;
+    const token = localStorage.getItem("token");
     try {
       let result = await fetch("http://localhost:5000/add-product", {
         method: "POST",
@@ -33,6 +34,7 @@ export default function AddProduct() {
           userId,
         }),
         headers: {
+          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
         },
       });
